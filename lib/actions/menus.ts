@@ -51,7 +51,8 @@ export async function updatePage(id: string, formData: FormData) {
     .eq("id", id)
     .maybeSingle();
   const body = formData.get("content") as string;
-  let content: Record<string, unknown> = { body };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let content: any = { body };
 
   if (existing?.slug === "quem-somos") {
     content = {
