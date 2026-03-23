@@ -10,7 +10,7 @@ async function getLogoUrl(): Promise<string | null> {
     .select("value")
     .eq("key", "header_logo_url")
     .single();
-  return data?.value ?? null;
+  return (data?.value as string) ?? null;
 }
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
